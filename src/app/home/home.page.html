@@ -6,9 +6,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Temps: {{timer.getMinutes}}:{{timer.getSecondes}}</h1>
+      </ion-col>
+      <ion-col>
+        <h1 *ngIf="timer.minutes === 1">Time over!</h1>
+      </ion-col>
+      <ion-col>
+        <h1>Score: {{score}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card>
+    <img *ngIf="big_arrow === 0" class="big_img" src="../../assets/big_arrow_right.png" alt="">
+    <img *ngIf="big_arrow === 1" class="big_img" src="../../assets/big_arrow_down.png" alt="">
+    <img *ngIf="big_arrow === 2" class="big_img" src="../../assets/big_arrow_left.png" alt="">
+    <img *ngIf="big_arrow === 3" class="big_img" src="../../assets/big_arrow_up.png" alt="">
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <img class="littl_img" id="left" src="../../assets/little_arrow_left.png" alt="" (click)="leftClick()">
+      <img class="littl_img" id="right" src="../../assets/little_arrow_right.png" alt="" (click)="rightClick()">
+    </ion-row>
+    <ion-row>
+      <img class="littl_img" id="down" src="../../assets/little_arrow_down.png" alt="" (click)="downClick()">
+      <img class="littl_img" id="up" src="../../assets/little_arrow_up.png" alt="" (click)="upClick()">
+    </ion-row>
+  </ion-grid>
 </ion-content>
